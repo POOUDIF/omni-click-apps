@@ -103,6 +103,10 @@ return [
 
     'credential_encryption_key' => env('CREDENTIAL_ENCRYPTION_KEY'),
 
+    // JWT untuk Socket.io auth (Phase 4A)
+    'jwt_secret'    => env('APP_JWT_SECRET'),
+    'jwt_ttl_hours' => env('JWT_TTL_HOURS', 24),
+
     'previous_keys' => [
         ...array_filter(
             explode(',', (string) env('APP_PREVIOUS_KEYS', ''))
