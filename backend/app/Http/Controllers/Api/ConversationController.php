@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\ConversationResolvedAnalyticsJob;
 use App\Models\Conversation;
 use App\Models\ConversationAssignment;
 use App\Services\RealtimeEventPublisher;
@@ -90,6 +91,8 @@ class ConversationController extends Controller
         ]);
 
         $this->realtime->conversationResolved($conv);
+
+        ConversationResolvedAnalyticsJob::dispatch($conv->id);
 
         return response()->json(['status' => 'resolved']);
     }

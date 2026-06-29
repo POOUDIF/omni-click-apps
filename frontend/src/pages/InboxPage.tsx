@@ -6,6 +6,7 @@ import { getSocket } from '../lib/socket';
 import { registerSocketHandlers } from '../lib/socketEventHandlers';
 import ConversationList from '../components/inbox/ConversationList';
 import ConversationDetail from '../components/conversation/ConversationDetail';
+import PresenceSidebar from '../components/inbox/PresenceSidebar';
 
 export default function InboxPage() {
   const user           = useAuthStore((s) => s.user);
@@ -53,6 +54,9 @@ export default function InboxPage() {
             </div>
           )}
         </div>
+
+        {/* Right sidebar — agent presence */}
+        <PresenceSidebar />
       </div>
     </div>
   );

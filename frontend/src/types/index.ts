@@ -71,4 +71,5 @@ export interface AgentPresence {
   avatarUrl: string | null;
   status: AgentStatus;
   lastSeen: string | null;
+  workload?: number;
 }
